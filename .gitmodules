@@ -1,0 +1,3 @@
+[submodule "libs/rad"]
+	path = libs/rad
+	url = git@github.com:lob-inc/rad.git
