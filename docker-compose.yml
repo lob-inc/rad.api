@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./.docker-compose-data/db/mysql:/var/lib/mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: rad
+      MYSQL_USER: raduser
+      MYSQL_PASSWORD: radpassword
+    command:
+      mysqld --sql-mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+  api:
+    image: rad.api:1.0
+    build:
+      context: .
+      args:
+        - SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
+    ports:
+      - "8081:8081"
+    command: sh -c "sleep 10 && /go/bin/api --config /config.yml --host 0.0.0.0 --port 8081"
+    depends_on:
+      - "mysql"
+    volumes:
+      - ./.go-pkg-cache:/go/pkg/mod
+      - ./config/example.yml:/config.yml
