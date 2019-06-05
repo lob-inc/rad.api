@@ -1,0 +1,50 @@
+env: local
+general:
+  send_grid_api_key: ""
+
+gcp:
+  general:
+    credential: |
+      {}
+  project_id: "rd2n-dev"
+  big_query:
+    dataset_id: rssplog
+
+databases:
+  rssp:
+    master:
+      host: "127.0.0.1"
+      port: 3306
+      dbname: rad
+      username: raduser
+      password: radpassword
+      connect_options:
+        mysql_enable_utf8: 1
+    slave:
+      host: "127.0.0.1"
+      port: 3306
+      dbname: rad
+      username: raduser
+      password: radpassword
+      connect_options:
+        mysql_enable_utf8: 1
+
+ui:
+  mail_verification_path: "/register/{mailkey}"
+  mail_resetpassword_path: "/reset-password/{mailkey}"
+  url: "http://127.0.0.1:1323"
+
+api:
+  mail_code_lifetime_hours: 1
+  app_secret: yukichi10000
+  email_from_text_en: "RDN Customer Support"
+  email_from_text_jp: "RDNサポート窓口"
+  email_address_from: "noreply@rx-ad.com"
+  email_address_support: "support@rx-ad.com"
+  minimal_request_interval_minutes: 3
+  carry_forward_threshold: 10000
+  tax_rate: 0.08
+  reject_address_confirmation_minutes: 60
+  reject_address_confirmation_count: 5
+  acceptable_address_range: "133.237.7.64/27,133.237.7.127/32,133.237.44.32/27"
+  allowed_origins: "*"

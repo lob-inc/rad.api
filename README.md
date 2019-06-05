@@ -9,6 +9,13 @@ git clone https://github.com/lob-inc/rad.api
 cd rad.api
 ```
 
+## Install deps
+
+```
+export GO111MODULE=on
+make deps
+```
+
 ## Start
 
 ```
@@ -20,4 +27,15 @@ Access API with
 
 ```
 curl localhost:8081/hc
+```
+
+Access RSSP API with
+
+```
+curl -iv -XPOST http://localhost:8080/v1/login -H 'Content-Type: application/json' -d '{"mail": "test@test.com","password":"securepassword"}'
+```
+
+Access AdServer API with
+```
+curl -XGET http://localhost:8080/v1/ads/campaigns -H 'Content-Type: application/json' -d '{"id": 1}'
 ```
