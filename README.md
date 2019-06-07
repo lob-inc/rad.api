@@ -5,7 +5,7 @@
 ```
 mkdir -p $GOPATH/src/github.com/lob-inc
 cd $GOPATH/src/github.com/lob-inc
-git clone https://github.com/lob-inc/rad.api
+git clone https://github.rakops.com/gatd/rad.api
 cd rad.api
 ```
 

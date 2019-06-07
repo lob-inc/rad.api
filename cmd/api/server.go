@@ -8,10 +8,10 @@ import (
 
 	loads "github.com/go-openapi/loads"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
-	"github.com/lob-inc/rad.api.pb/gen/go/adsapipb"
 	rsspsrv "github.com/lob-inc/rssp/server"
 	"github.com/lob-inc/rssp/server/api/restapi"
 	"github.com/lob-inc/rssp/server/api/restapi/operations"
+	"github.rakops.com/gatd/rad.api.pb/gen/go/adsapipb"
 	"google.golang.org/grpc"
 )
 
